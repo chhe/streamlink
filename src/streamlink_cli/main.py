@@ -17,12 +17,12 @@ from streamlink.cache import Cache
 from streamlink.stream import StreamProcess
 from streamlink.plugins.twitch import TWITCH_CLIENT_ID
 
-from .argparser import parser
-from .compat import stdout, is_win32
-from .console import ConsoleOutput
-from .constants import CONFIG_FILES, PLUGINS_DIR, STREAM_SYNONYMS
-from .output import FileOutput, PlayerOutput
-from .utils import NamedPipe, HTTPServer, ignored, progress, stream_to_url
+from streamlink_cli.argparser import parser
+from streamlink_cli.compat import stdout, is_win32
+from streamlink_cli.console import ConsoleOutput
+from streamlink_cli.constants import CONFIG_FILES, PLUGINS_DIR, STREAM_SYNONYMS
+from streamlink_cli.output import FileOutput, PlayerOutput
+from streamlink_cli.utils import NamedPipe, HTTPServer, ignored, progress, stream_to_url
 
 ACCEPTABLE_ERRNO = (errno.EPIPE, errno.EINVAL, errno.ECONNRESET)
 QUIET_OPTIONS = ("json", "stream_url", "subprocess_cmdline", "quiet")
@@ -954,3 +954,6 @@ def main():
             "read the manual at https://streamlink.github.io"
         ).format(usage=usage)
         console.msg(msg)
+
+if __name__ == "__main__":
+    main()
